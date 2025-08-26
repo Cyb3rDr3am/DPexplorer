@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="test" class="actions.TestAction">
+            <result name="success">/test.jsp</result>
+        </action>
+        <action name="submitDPE" class="actions.DPEAction">
+            <result name="success">/FormDPE.jsp</result>
+            <result name="input">/FormDPE.jsp</result>
+            <result name="failure">/FormDPE.jsp</result>
+        </action>
+        <action name="deleteDPE" class="actions.DeleteDPEAction">
+			<result name="success" type="redirectAction">
+                <param name="actionName">test</param>
+            </result>
+            <result name="error" type="redirectAction">
+                <param name="actionName">test</param>
+                <param name="error">${errorMessage}</param>
+            </result>
+        </action>
+        <action name="deleteRue" class="actions.DeleteRueAction">
+			<result name="success" type="redirectAction">
+                <param name="actionName">rue</param>
+            </result>
+            <result name="error" type="redirectAction">
+                <param name="actionName">rue</param>
+                <param name="error">${errorMessage}</param>
+            </result>
+        </action>
+        <action name="insertRue" class="actions.InsertRueAction">
+			<result name="success" type="redirectAction">
+                <param name="actionName">rue</param>
+            </result>
+            <result name="error" type="redirectAction">
+                <param name="actionName">rue</param>
+                <param name="error">${errorMessage}</param>
+            </result>
+        </action>
+        <action name="rue" class="actions.RueAction">
+            <result name="success">/rue.jsp</result>
+        </action>
+        <action name="ville" class="actions.VilleAction">
+            <result name="success">/ville.jsp</result>
+        </action>
+        <action name="villeForm" class="actions.VilleFormAction">
+            <result name="success">/villeForm.jsp</result>
+            <result name="input">/villeForm.jsp</result>
+            <result name="failure">/villeForm.jsp</result>
+        </action>
+        <action name="deleteVille" class="actions.DeleteVilleAction">
+			<result name="success" type="redirectAction">
+                <param name="actionName">ville</param>
+            </result>
+            <result name="error" type="redirectAction">
+                <param name="actionName">ville</param>
+                <param name="error">${errorMessage}</param>
+            </result>
+        </action>
+        <action name="listVille" class="actions.ListVilleAction" />
+        <action name="listRue" class="actions.ListRueAction" />
+        <action name="listDPE" class="actions.ListDPEAction" />
+        <action name="coordinatesMap" class="actions.CoordinatesMapAction" />
+        
+        <action name="SearchForm" class="actions.SearchFormAction">
+            <result name="success">/SearchForm.jsp</result>
+		    <result name="rechercherSuccess">/SearchForm.jsp</result>
+   			<result name="paginationOrSortBySuccess">/SearchForm.jsp</result>
+   			<result name="goToFormSuccess">/SearchForm.jsp</result>
+   			<result name="deleteSuccess">/SearchForm.jsp</result>
+   			<result name="goToFormSuccess">/SearchForm.jsp</result>
+        </action>
+        
+        <action name="AddData" class="actions.SearchFormAction">
+        	<result name="goToAddDataSuccess">/SearchForm.jsp</result>
+        </action>
+        
+        <action name="Map" class="actions.MapAction">
+        	<result name="success">/Map.jsp</result>
+        	<result name="goToMapSuccess">/Map.jsp</result>
+        	<result name="rechercherClasseMapSuccess">/Map.jsp</result>
+        	<result name="rechercherAdresseMapSuccess">/Map.jsp</result>
+        </action>
+        
+        
+    </package>
+</struts>
